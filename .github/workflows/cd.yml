@@ -1,0 +1,27 @@
+name: CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploy to EC2 via SSH
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          if [ ! -d "2212158-devops-project" ]; then
+            git clone https://github.com/${{ github.repository }}.git
+            cd 2212158-devops-project
+          else
+            cd 2212158-devops-project
+            git pull origin main
+          fi
+          docker compose down
+          docker compose up -d --build
