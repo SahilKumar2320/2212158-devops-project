@@ -1,8 +1,9 @@
-# BSCS-2022-001 — DevOps Final Project
+# 2212158 — DevOps Final Project
 
-> **Student:** BSCS-2022-001
+> **Student Name:** Sahil Kumar
+> **Registration Number:** 2212158
 > **Course:** DevOps Fundamentals
-> **Live URL:** http://YOUR_EC2_IP:8000
+> **Live URL:** http://51.20.115.24:8000
 
 ---
 
@@ -10,14 +11,14 @@
 
 ```
 GitHub Push
-    │
-    ├── CI Pipeline (GitHub Actions)
-    │       ├── flake8 lint
-    │       └── pytest (with PostgreSQL service container)
-    │
-    └── CD Pipeline (GitHub Actions)
-            └── SSH into EC2
-                    └── git pull + docker compose up --build
+│
+├── CI Pipeline (GitHub Actions)
+│       ├── flake8 lint
+│       └── pytest (with PostgreSQL service container)
+│
+└── CD Pipeline (GitHub Actions)
+└── SSH into EC2
+└── git pull + docker compose up --build
 ```
 
 **Services:**
@@ -32,8 +33,8 @@ GitHub Push
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/BSCS-2022-001-devops-project
-cd BSCS-2022-001-devops-project
+git clone [https://github.com/SahilKumar2320/2212158-devops-project](https://github.com/SahilKumar2320/2212158-devops-project)
+cd 2212158-devops-project
 
 # 2. Create your .env file
 cp .env.example .env
@@ -64,21 +65,21 @@ curl http://localhost:8000/students
 
 ```bash
 # SSH into your EC2 instance
-ssh -i your-key.pem ubuntu@YOUR_EC2_IP
+ssh -i your-key.pem ubuntu@51.20.115.24
 
 # Install Docker
 sudo apt update && sudo apt install -y docker.io docker-compose-plugin
 sudo usermod -aG docker ubuntu
 
 # Clone and run
-git clone https://github.com/YOUR_USERNAME/BSCS-2022-001-devops-project ~/devops-project
+git clone [https://github.com/SahilKumar2320/2212158-devops-project](https://github.com/SahilKumar2320/2212158-devops-project) ~/devops-project
 cd ~/devops-project
 cp .env.example .env   # Edit with production values
 docker compose -f docker-compose.prod.yml up -d --build
 ```
 
 **GitHub Secrets required:**
-- `EC2_HOST` — your EC2 public IP address
+- `EC2_HOST` — 51.20.115.24
 - `EC2_SSH_KEY` — your private SSH key (contents of .pem file)
 
 ---
@@ -87,9 +88,9 @@ docker compose -f docker-compose.prod.yml up -d --build
 
 ```bash
 pip install -r requirements.txt
-pytest app/tests/ -v
 ```
 
 ---
+pytest app/tests/ -v
 
 *DevOps Fundamentals — Instructor: Afaq Ahmed*
