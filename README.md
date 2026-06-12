@@ -94,3 +94,4 @@ pip install -r requirements.txt
 pytest app/tests/ -v
 
 *DevOps Fundamentals — Instructor: Afaq Ahmed*
+ 
