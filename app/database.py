@@ -14,3 +14,4 @@ Base = declarative_base()
 
 # Export text() so main.py can use it for the health check
 __all__ = ["engine", "SessionLocal", "Base", "text"]
+ 
